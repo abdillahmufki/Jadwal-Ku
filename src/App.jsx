@@ -1,7 +1,13 @@
 import React from "react";
-
+import CustomForm from "./components/CustomForm";
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div className="container">
+      <header>
+        <CustomForm />
+      </header>
+    </div>
+  );
 };
 
 export default App;
