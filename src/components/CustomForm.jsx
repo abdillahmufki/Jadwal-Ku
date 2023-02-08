@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 
-const CustomForm = () => {
+const CustomForm = ({ addTask }) => {
+  const [task, setTask] = useState("");
+
   const handleForSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted");
+    addTask({
+      name: task,
+      checked: false,
+      id: Date.now(),
+    });
+    setTask("");
   };
 
   return (
@@ -13,7 +21,8 @@ const CustomForm = () => {
           type="text"
           id="task"
           className="input"
-          //   onInput={(e) => setTask(e.target.value)}
+          value={task}
+          onInput={(e) => setTask(e.target.value)}
           required
           autoFocus
           maxLength={60}
